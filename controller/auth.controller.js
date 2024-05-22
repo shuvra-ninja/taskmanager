@@ -161,6 +161,6 @@ export const postLogout = (req, res, next) => {
     options.sameSite = "None";
   }
   res.clearCookie("user_token", options);
-  res.clearCookie("isLogin", { ...options, secure: false });
+  res.clearCookie("isLogin", { ...options, httpOnly: false });
   res.status(200).json({ messgae: "logout done" });
 };
