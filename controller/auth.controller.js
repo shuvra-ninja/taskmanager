@@ -134,8 +134,6 @@ export const postLogin = (req, res, next) => {
       res.cookie("isLogin", true, {
         maxAge: cookieExpire,
         domain: cookieDomain,
-        secure: true,
-        sameSite : "None",
       });
       res.status(200).json({
         message: "login done",
