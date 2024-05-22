@@ -128,13 +128,11 @@ export const postLogin = (req, res, next) => {
 
       if (isProduction === "true") {
         options.secure = true;
+        options.sameSite = "None";
       }
 
-      res.cookie("user_token", token, {...options,sameSite : "None"});
-      res.cookie("isLogin", true, {
-        maxAge: cookieExpire,
-        domain: cookieDomain,
-      });
+      res.cookie("user_token", token, options);
+      res.cookie("isLogin", true, { ...options, httpOnly: false });
       res.status(200).json({
         message: "login done",
       });
