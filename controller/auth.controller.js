@@ -126,7 +126,7 @@ export const postLogin = (req, res, next) => {
         httpOnly: true,
       };
 
-      if (isProduction === "true") {
+      if (isProduction === "false") {
         options.secure = true;
         options.sameSite = "None";
       }
